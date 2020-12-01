@@ -12,30 +12,31 @@ boyImage=loadImage("boy.png")
 }
 
 function setup() {
-	createCanvas(1500, 700);
+	createCanvas(windowWidth,windowHeight);
 
 
 	engine = Engine.create();
 	world = engine.world;
 
-var  boy=createSprite(295,580)
+var  boy=createSprite(windowWidth-1230,windowHeight-330)
 World.add(world,boy)
 boy.addImage(boyImage)
 boy.scale=0.10;
 	//Create the Bodies Here.
 
-  ground= new Ground(500,650,2000,20)
-  mango1= new Mango(1165,350,20)	
-  mango2= new Mango(1250,375,20)	
-  mango3= new Mango(1265,250,20)	
-  mango4= new Mango(1335,280,20)	
-  mango5= new Mango(1365,370,20)	
-  mango6= new Mango(1445,360,20)	
-  mango7= new Mango(1390,255,20)	
-  mango8= new Mango(1285,325,20)	
-  tree = new Tree(1350,410,20,20)
+  ground= new Ground(240,650,20000,20)
+  mango1= new Mango(windowWidth-320,windowHeight-440,20)	
+  mango2= new Mango(windowWidth-250,windowHeight-400,20)	
+  mango3= new Mango(windowWidth-80,windowHeight-340,20)	
+  mango4= new Mango(windowWidth-150,windowHeight-350,20)	
+  mango5= new Mango(windowWidth-100,windowHeight-400,20)	
+  mango6= new Mango(windowWidth-300,windowHeight-500,20)	
+  mango7= new Mango(windowWidth-350,windowHeight-320,20)	
+  mango8= new Mango(windowWidth-450,windowHeight-350,20)	
+  tree = new Tree(windowWidth-250,windowHeight-320,20,20)
   stone=new Stone(20,540,20)
- launcher=new Slingshot(stone.body,{x:245,y:520})
+ 
+ launcher=new Slingshot(stone.body,{x:245,y:345})
 	Engine.run(engine);
   
 }
@@ -58,6 +59,7 @@ function draw() {
  mango6.display();
  mango7.display();
  mango8.display();
+ 
  launcher.display();
 
  detectCollission(stone,mango1);
@@ -108,5 +110,6 @@ function keyPressed()
 }
 function mouseReleased(){
   launcher.fly()
- }
 
+
+ }
